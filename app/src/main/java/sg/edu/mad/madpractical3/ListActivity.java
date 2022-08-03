@@ -20,10 +20,12 @@ import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
     static ArrayList<User> userArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        Random rd = new Random();
 
         
 
@@ -34,6 +36,7 @@ public class ListActivity extends AppCompatActivity {
             User user = new User();
             user.setName("Name"+randomNum());
             user.setDescription("Description"+randomNum());
+            user.setFollow(rd.nextBoolean());
             userArrayList.add(user);
         }
 
@@ -54,8 +57,7 @@ public class ListActivity extends AppCompatActivity {
     private int randomNum()
     {
         Random ran = new Random();
-        int value  = ran.nextInt(1000000000);
-        return value;
+        return ran.nextInt(1000000000);
     }
 
 
